@@ -24,14 +24,20 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Recreate Android Project Wrapper
-        run: flutter create . --platforms=android
+      - name: Generate Android Scaffold
+        run: |
+          mkdir -p temp_project
+          cd temp_project
+          flutter create --org com.srinath.datamanager --project-name master_data_manager .
+          cp -r android ../
+          cd ..
+          rm -rf temp_project
 
       - name: Install Dependencies
         run: flutter pub get
 
       - name: Build Standalone APK
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release --split-per-abi --no-tree-shake-icons
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
