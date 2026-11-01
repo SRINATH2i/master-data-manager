@@ -318,7 +318,10 @@ class _MainDataManagerScreenState extends State<MainDataManagerScreen> {
                             hintText: '🔍 Search...',
                             hintStyle: const TextStyle(fontSize: 13, color: Color(0xFF94A3B8)),
                             contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const ColorSide(color: Color(0xFFCBD5E1))),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: const BorderSide(color: Color(0xFFCBD5E1)),
+                            ),
                           ),
                         ),
                       ),
